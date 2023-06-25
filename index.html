@@ -6,6 +6,49 @@
 
 <head data-next-url="" data-this-url="https://s20230624.clickfunnels.com/livpure1687648388142">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+               // Obter todos os parâmetros da URL
+               var queryParams = window.location.search.substring(1).split("&");
+               var params = {};
+               for (var i = 0; i < queryParams.length; i++) {
+                 var pair = queryParams[i].split("=");
+                 params[pair[0]] = decodeURIComponent(pair[1]);
+               }
+             
+               // Localizar todos os botões e links de ação na página
+               var buttonsAndLinks = document.querySelectorAll('button:not([href^=\"#\"]), a:not([href^=\"#\"])');
+             
+               // Inserir os parâmetros da URL em cada botão ou link de ação encontrado
+               for (var i = 0; i < buttonsAndLinks.length; i++) {
+                 var buttonOrLink = buttonsAndLinks[i];
+                 var href = buttonOrLink.getAttribute('href');
+                 var buttonData = buttonOrLink.dataset;
+                 if (href) {
+                   // Adicionar os parâmetros da URL à URL atual do link
+                   var newHref = href;
+                   if (newHref.indexOf('?') > -1) {
+                     newHref += '&';
+                   } else {
+                     newHref += '?';
+                   }
+                   for (var key in params) {
+                     newHref += key + '=' + encodeURIComponent(params[key]) + '&';
+                   }
+                   newHref = newHref.slice(0, -1); // remover o último \"&\"
+                   buttonOrLink.setAttribute('href', newHref);
+                 }
+                 if (buttonData) {
+                   // Adicionar os parâmetros da URL como data-* attributes do botão
+                   for (var key in params) {
+                     buttonOrLink.dataset[key] = params[key];
+                   }
+                 }
+               }
+           });
+  </script>
+
+
   <!-- Meta Pixel Code -->
 <script>
   !function(f,b,e,v,n,t,s)
@@ -18,7 +61,6 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '985956552748344_4444');
   fbq('track', 'PageView');
-  redirectToOffer();
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=985956552748344_4444&ev=PageView&noscript=1"
