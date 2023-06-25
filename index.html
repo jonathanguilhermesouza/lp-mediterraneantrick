@@ -826,40 +826,6 @@
                 data-trigger="none" data-animate="fade" data-delay="500"
                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
                 <div class="elCustomJSBg">CUSTOM JAVASCRIPT / HTML</div>
-                <div class="elCustomJS_code" data-custom-js="&lt;script&gt;
-jQuery(document).ready(function($){
-    URLModifier(&#39;tid&#39;); // replace VTID to any key
-});
-function URLModifier(customKey)
-{
-var searchKeyWord = &#39;utm_campaign&#39;; // replace utm_campaign to any key you want to search for
-var searchKeyWordUrl = getParamFromURL(searchKeyWord);
-if(searchKeyWordUrl)
-    {
-      $(&#39;a&#39;).each(function() {
-            var currentLinkUrl = $(this).attr(&#39;href&#39;);
-            if(typeof currentLinkUrl !== &quot;undefined&quot;) //Anchor Links
-            {
-              var modifiedUrl = currentLinkUrl+(currentLinkUrl.match(/\?/) ? &#39;&amp;&#39; : &#39;?&#39;) + customKey + &#39;=&#39; + searchKeyWordUrl;
-        $(this).attr(&#39;href&#39;, modifiedUrl);
-            }
-            else // Image Links
-            {
-              var currentImgLinkUrl = $(this).attr(&#39;data-imagelink&#39;);
-                var modifiedImgUrl = currentImgLinkUrl+(currentImgLinkUrl.match(/\?/) ? &#39;&amp;&#39; : &#39;?&#39;) + customKey + &#39;=&#39; + searchKeyWordUrl;
-        $(this).attr(&#39;data-imagelink&#39;, modifiedImgUrl);
-            }
-      });             
-    } 
-}
-  function getParamFromURL(t)
-  {
-    var a=new RegExp(&quot;[?&amp;]&quot;+t+&quot;=([^&amp;#]*)&quot;).exec(window.location.href);
-    return null===a?null:a[1]
-  }
-&lt;/script&gt;
-" data-displaytype="htmlregular">
-                </div>
               </div>
               <div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_headline1-27531"
                 data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true" data-trigger="none"
